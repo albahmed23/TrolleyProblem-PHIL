@@ -123,6 +123,19 @@
         font-weight: bold;
         }
 
+        #quiz-resources {
+        display: block;
+        color: #00403C;
+        font-size: 20px;
+        font-weight: bold;
+        }
+
+        a {
+        font-size: 20px;
+        font-weight: bold;
+        }
+
+
         #quiz-results-score {
         display: block;
         color: #31706c;
@@ -211,17 +224,22 @@
             var percentage = score / self.questions.length;
             console.log(percentage);
             var message;
+            var resources;
             if (percentage === 1) {
             message = 'What a sad day. One person died when Edward turned the Trolley.'
+            resources = 'Your decision reflects a <a href="http://www.bbc.co.uk/ethics/introduction/consequentialism_1.shtml">Utilitarianism Theory</a>'
             } else if (percentage >= .75) {
             message = 'You did alright.'
             } else if (percentage >= .5) {
             message = 'Better luck next time.'
             } else {
             message = 'Edward did not take the turn and sadly killed all five people on the track.'
+            resources = 'Your decision reflects a <a href="http://www.bbc.co.uk/ethics/introduction/duty_1.shtml">Kantian Theory</a>, specifically the second version of the categorical imperative that says never to treat other people as a means, but only as ends in themselves.'
             }
+
             $('#quiz-results-message').text(message);
-          
+            $('#quiz-resources').html(resources);
+
             $('#quiz-results').slideDown();
             $('#try-again-button').slideDown();
             $('#submit-button').slideUp();
@@ -348,6 +366,7 @@
 
         <div id="quiz-results">
           <p id="quiz-results-message"></p>
+          <p id="quiz-resources"></p>
           <p id="quiz-results-score"></p>
         </div>
       </div>
